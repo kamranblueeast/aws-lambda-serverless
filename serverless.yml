@@ -3,7 +3,7 @@ service: serverless-sample
 provider:
   name: aws
   runtime: nodejs6.10
-  stage: demo
+  stage: kamran
   region: us-east-1
   iamRoleStatements:
     - Effect: "Allow"
