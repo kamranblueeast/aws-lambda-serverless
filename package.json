@@ -32,6 +32,8 @@
     "type": "git",
     "url": "git://github.com/balassy/aws-lambda-typescript.git"
   },
+ 
+  
   "devDependencies": {
     "@types/aws-lambda": "^8.10.22",
     "@types/chai": "^4.1.7",

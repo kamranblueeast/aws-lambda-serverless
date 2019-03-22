@@ -20,8 +20,7 @@ plugins:
   - serverless-stack-output
 
 package:
-  include:
-    src/**/!(*.spec).js
+  include: src/**/!(*.spec).js
   exclude:
     - node_modules/**/*
 
@@ -58,7 +57,7 @@ functions:
               - Health
             description: Returns the result of a quick health check of the API.
             methodResponses:
-              - statusCode: '200'
+              - statusCode: "200"
                 description: Returned when the operation is completed successfully.
                 responseModels:
                   "application/json": GetHealthCheck
@@ -79,7 +78,7 @@ functions:
               - Health
             description: Returns the result of a detailed health check of the API.
             methodResponses:
-              - statusCode: '200'
+              - statusCode: "200"
                 description: Returned when the operation is completed successfully.
                 responseModels:
                   "application/json": GetHealthCheckDetailed
@@ -106,18 +105,79 @@ functions:
             tags:
               - City
             description: Returns the specified city.
-            pathParams:
-              - name: id
-                description: The unique identifier of the city to retrieve.
             methodResponses:
-              - statusCode: '200'
+              - statusCode: "200"
                 description: Returned when the operation is completed successfully.
                 responseModels:
-                  "application/json": GetCityResponse
+                  #"application/json": GetCityResponse
               - ${file(./swagger/error-responses/bad-request.yml)}
               - ${file(./swagger/error-responses/forbidden.yml)}
               - ${file(./swagger/error-responses/not-found.yml)}
               - ${file(./swagger/error-responses/internal-server-error.yml)}
+
+  #orders post request
+  postOrder:
+    handler: src/orders/orders.postOrder
+    description: Post Order.
+
+    events:
+      - http:
+          path: createOrder
+          method: POST
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+          documentation:
+            summary: POSt Order.
+            tags:
+              - Order
+            description: POst Order.
+            pathParams:
+              # - name: id
+                description: The unique identifier of the order to retrieve.
+            methodResponses:
+              - statusCode: "200"
+                description: Returned when the operation is completed successfully.
+                responseModels:
+                  "application/json": GetOrderResponse
+              - ${file(./swagger/error-responses/bad-request.yml)}
+              - ${file(./swagger/error-responses/forbidden.yml)}
+              - ${file(./swagger/error-responses/not-found.yml)}
+              - ${file(./swagger/error-responses/internal-server-error.yml)}
+
+#orders post request end
+
+# get request
+  getOrder:
+    handler: src/orders/orders.getOrder
+    description: Get Order.
+
+    events:
+      - http:
+          path: getOrder
+          method: get
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+          
+#get request end
+
+# update request
+  updateOrder:
+    handler: src/orders/orders.updateOrder
+    description: Get Order.
+
+    events:
+      - http:
+          path: updateOrder/{id}
+          method: PUT
+          cors: true
+          
+#update request end
 
 custom:
   documentation: ${file(./swagger/documentation.yml)}
