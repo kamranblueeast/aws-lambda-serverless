@@ -1,21 +1,15 @@
-// import { DefaultCrudRepository } from 'data-access-object';
-// import { OrdersModel } from './orders.model';
-import { Order } from './orders.interfaces'
+// import { Order } from './orders.interfaces'
 
+import { DefaultCrudRepository } from 'data-access-object';
+import { OrdersModel } from './orders.model';
 
-export class OrdersRepository {
-    
-    public exists(data: any): boolean {
-      return data;
+export class OrdersRepository extends DefaultCrudRepository<OrdersModel> {
+    public constructor() {
+        super(OrdersModel);
+        
     }
 
-    public postOrder(data: any): Order {
-      return data;
-    };
-  
-    
-  }
-
+}
 
 
 

@@ -32,8 +32,10 @@
     "type": "git",
     "url": "git://github.com/balassy/aws-lambda-typescript.git"
   },
- 
-  
+  "dependencies": {
+    "data-access-object": "git+ssh://git@bitbucket.org/be-iot-platform/data-access-objects.git"
+  },
+
   "devDependencies": {
     "@types/aws-lambda": "^8.10.22",
     "@types/chai": "^4.1.7",

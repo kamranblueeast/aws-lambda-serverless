@@ -9,4 +9,10 @@ const controller: OrdersController = new OrdersController(service);
 
 export const postOrder: ApiHandler = controller.postOrder;
 export const getOrder: ApiHandler = controller.getOrders;
-export const updateOrder: ApiHandler = controller.updateOrder
+export const getOrderById: ApiHandler = controller.getOrderById;
+export const updateOrder: ApiHandler = controller.updateOrder;
+export const deleteOrder: ApiHandler = controller.deleteOrder
+
+
+
+

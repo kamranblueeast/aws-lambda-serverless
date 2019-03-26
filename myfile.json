@@ -1,8 +1,1 @@
-{
-  "id": 7,
-  "country": "pakistan",
-  "name": "abcd",
-  "phone": 123456,
-  "address": "syd",
-  "ntn": 452
-}
+"{\t\"id\":7,\n\t\"country\":\"pakistan\",\n\t\"name\":\"abcd\",\n\t\"phone\":123456,\n\t\"address\":\"syd\",\n\t\"ntn\":452\n}"
